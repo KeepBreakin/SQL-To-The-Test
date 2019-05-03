@@ -1,0 +1,50 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: rgba(59, 67, 78, 0.5);
+  }
+  
+  .container {
+    width: 400px;
+    height: 500px;
+    background-color: #3b434e;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 1.5em;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    margin-top: 20px;
+    height: 35px;
+    width: 200px;
+    font-size: 16px;
+    margin-bottom: 5px;
+    background-color: #fff;
+    padding-left: 40px;
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    outline: none;
+  }
+  
+  .btn-update {
+    background-color: green;
+    border: none;
+    padding: 10px 50px 10px 50px;
+    margin: 40px 0px 10px 0px;
+    font-weight: bold;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    border-radius: 20px;
+    cursor:pointer;
+  }
+  
+  form{
+    margin: 0;
+  }
