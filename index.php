@@ -19,12 +19,10 @@ include('header.php');
 
     if (isset($_SESSION['register'])) {
         ?>
-
         <div class="container">
             <?php
             echo $_SESSION['register'];
-            header("Refresh: 3; Location: login.php");
-
+            header("Location: login.php");
             ?>
         </div>
     <?php

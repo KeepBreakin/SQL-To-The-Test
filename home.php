@@ -25,7 +25,7 @@ include('header.php');
             echo $_SESSION['login-user']['Username'];
 
             ?>
-            <a href='account.php'> Edit account</a>
+            <a href='account.php'>Edit user settings</a>
         </div>
     <?php
 

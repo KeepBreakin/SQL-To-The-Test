@@ -54,13 +54,11 @@ if (isset($_POST['login'])) {
 
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $errormsg = "Username or Password is invalid";
-
 
 
     if (empty($_POST['username']) || empty($_POST['password'])) {
 
-        $_SESSION['errorMsg'] =  $errormsg;
+        $_SESSION['errorMsg'] =  "Username or Password is invalid";
 
         header('Location: login.php');
     } else {
@@ -79,6 +77,8 @@ if (isset($_POST['login'])) {
 
             $_SESSION['login-user'] = $user;
             $_SESSION['password'] = $user;
+            // var_dump($_SESSION['login-user']['Username']);
+            // exit;
             header("Location: home.php");
         } else {
             $_SESSION['errorMsg'] =  'Could not find a user with that username!';
@@ -91,7 +91,8 @@ if (isset($_POST['login'])) {
 // UPDATE
 
 if (isset($_POST['update'])) {
-    $username = $_POST['username'];
+    $username = $_SESSION['login-user']['Username'];
+    $new_username = $_POST['username'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $email = $_POST['email'];
@@ -101,7 +102,7 @@ if (isset($_POST['update'])) {
 
     $stmt = $pdo->prepare($sql);
 
-    $stmt->bindValue(':username', $username);
+    $stmt->bindValue(':username', $new_username);
     $stmt->bindValue(':firstname', $firstname);
     $stmt->bindValue(':lastname', $lastname);
     $stmt->bindValue(':email', $email);
@@ -110,18 +111,12 @@ if (isset($_POST['update'])) {
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    
+
 
     if ($result) {
-       $_SESSION['updateSucces'] = 'Updated succesfully';
-       header('Location: account.php');
-        
+        $_SESSION['updateSucces'] = 'Updated succesfully';
+        header('Location: account.php');
     } else {
-        // $_SESSION['updateFail'] = 'Update failed';
-
-        echo 'fail';
-        // $_SESSION['updateFail'] = 'failed';
-        // header('Location: account.php');    
-   
+        $_SESSION['updateFail'] = 'Update failed, try again';
     }
 }

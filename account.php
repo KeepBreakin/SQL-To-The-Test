@@ -21,19 +21,23 @@
 
         <button type="submit" name="update" class="btn-update">Update </button><br>
         <?php
-        // if (isset($_SESSION['updateSucces'])) {
-
-        //     echo $_SESSION['updateSucces'];
-        //  }
-
         session_start();
         if (isset($_SESSION['updateSucces'])) {
-            ?> 
-                <?php echo $_SESSION['updateSucces'];
-                ?>
+            ?>
+            <?php echo $_SESSION['updateSucces'];
+            ?>
             <?php
-                    unset($_SESSION['updateSucces']);
-                } ?>
+            unset($_SESSION['updateSucces']);
+        } 
+        
+        
+        if (isset($_SESSION['updateFail'])) {
+            ?>
+            <?php echo $_SESSION['updateFail'];
+            ?>
+            <?php
+            unset($_SESSION['updateFail']);
+        } ?>
 
     </form>
 </div>
